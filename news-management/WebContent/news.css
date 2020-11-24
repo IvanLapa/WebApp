@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+body {
+font-family: Impact, "Times New Roman", serif;
+color: black;
+background-color: #d8da3d }
+
+.myButton {
+background: white; 
+color: black;
+font-size: 9pt;}
+
+.myButton:hover { 
+color: white; 
+background: black; }
+
+a {
+color: black;
+text-decoration: none;
+} 
+
+a:hover {
+color: white; 
+text-decoration: underline;
+}
