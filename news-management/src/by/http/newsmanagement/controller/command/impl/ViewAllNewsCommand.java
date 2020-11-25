@@ -37,7 +37,6 @@ public class ViewAllNewsCommand implements Command {
 				requestDispatcher.forward(request, response);
 			} else {
 				request.setAttribute("news", news);
-				
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher(ParameterUrlController.VIEW_ALL_NEWS);
 				requestDispatcher.forward(request, response);
 			}

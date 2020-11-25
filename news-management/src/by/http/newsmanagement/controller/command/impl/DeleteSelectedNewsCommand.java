@@ -1,10 +1,7 @@
 package by.http.newsmanagement.controller.command.impl;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +28,6 @@ public class DeleteSelectedNewsCommand implements Command{
 		
 		try {
 			String[] newsToDeleteIds = request.getParameterValues(DELETE_SELECTED_NEWS);
-			
 			if (newsToDeleteIds != null) {
 				newsService.deleteSelected (newsToDeleteIds);
 				request.getSession().setAttribute("result_operation", "Group delete successfully");
@@ -40,7 +36,6 @@ public class DeleteSelectedNewsCommand implements Command{
 				request.getSession().setAttribute("result_operation", "News was not select");
 				response.sendRedirect(ParameterUrlController.WELCOME_PAGE);	
 			}
-			
 		} catch (ServiceException e) {
 		}				
 	}

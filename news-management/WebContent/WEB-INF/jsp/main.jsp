@@ -26,7 +26,6 @@
 <fmt:message bundle="${loc}" key="result.operation.update" var="result_operation_update" />
 <fmt:message bundle="${loc}" key="result.operation-del" var="result_operation_del" />
 <fmt:message bundle="${loc}" key="result.operation-del-group" var="result_operation_del_group" />
-
 <fmt:message bundle="${loc}" key="result.operation-news-not-select" var="result_operation_news_not_select" />
 <fmt:message bundle="${loc}" key="result.operation-news-no-current" var="result_operation_news_no_current" />
 
