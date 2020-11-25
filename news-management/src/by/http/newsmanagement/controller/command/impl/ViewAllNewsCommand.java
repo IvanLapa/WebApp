@@ -31,13 +31,17 @@ public class ViewAllNewsCommand implements Command {
 
 		try {
 			news = newsService.selectAll();
+			if (news.isEmpty()) {
+				request.getSession().setAttribute("result_operation", "No current news");
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher(ParameterUrlController.WELCOME_PAGE);
+				requestDispatcher.forward(request, response);
+			} else {
+				request.setAttribute("news", news);
+				
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher(ParameterUrlController.VIEW_ALL_NEWS);
+				requestDispatcher.forward(request, response);
+			}
 		} catch (ServiceException e) {
 		}
-		
-		
-		request.setAttribute("news", news);
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher(ParameterUrlController.VIEW_ALL_NEWS);
-		requestDispatcher.forward(request, response);
 	}
 }
