@@ -15,14 +15,10 @@ import by.http.newsmanagement.controller.command.Command;
 public class MainPageCommand implements Command{
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		response.setContentType("text/html");
-		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(ParameterUrlController.MAIN_PAGE);
+		requestDispatcher.forward(request, response);
 		
-		try {
-			requestDispatcher.forward(request, response);
-		} catch (ServletException | IOException e) {
-		}
 	}
 }

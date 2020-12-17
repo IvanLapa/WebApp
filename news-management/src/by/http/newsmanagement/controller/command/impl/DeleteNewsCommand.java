@@ -33,11 +33,10 @@ public class DeleteNewsCommand implements Command {
 
 		try {
 			newsService.delete (id);
+			request.getSession().setAttribute("result_operation", "Delete successfully");
 		} catch (ServiceException e) {
-		}
-
-		request.getSession().setAttribute("result_operation", "Delete successfully");
-		
-		response.sendRedirect(ParameterUrlController.WELCOME_PAGE);
+			request.getSession().setAttribute("result_operation", "No news deleted, somethinhg was wrong");//
+			response.sendRedirect(ParameterUrlController.WELCOME_PAGE);//
+		} response.sendRedirect(ParameterUrlController.WELCOME_PAGE);
 	}
 }

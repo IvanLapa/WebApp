@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import by.http.newsmanagement.controller.ParameterUrlController;
 import by.http.newsmanagement.controller.command.Command;
 import by.http.newsmanagement.entity.News;
 import by.http.newsmanagement.entity.ParameterForm;
@@ -40,6 +41,8 @@ public class UpdateNewsCommand implements Command {
 		try {
 			news = newsService.select (id);
 		} catch (ServiceException e) {
+			request.getSession().setAttribute("result_operation", "No news updated, somethinhg was wrong");//
+			response.sendRedirect(ParameterUrlController.WELCOME_PAGE);//
 		}
 		
 		session.setAttribute("current_news", news);

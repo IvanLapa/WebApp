@@ -49,6 +49,7 @@ public class CreateNewsCommand implements Command {
 			request.getSession().setAttribute("result_operation", "New news added successfully!");
 		} catch (ServiceException e) {
 			request.getSession().setAttribute("result_operation", "No news added, somethinhg was wrong");
+			response.sendRedirect(ParameterUrlController.WELCOME_PAGE);//
 		}
 		response.sendRedirect(ParameterUrlController.WELCOME_PAGE);
 	}

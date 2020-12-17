@@ -47,6 +47,8 @@ public class UpdateNewsSaveCommand implements Command{
 		try {
 			newsService.update(news, id);
 		} catch (ServiceException e) {
+			request.getSession().setAttribute("result_operation", "No news updated, somethinhg was wrong");//
+			response.sendRedirect(ParameterUrlController.WELCOME_PAGE);//
 		}
 
 		request.getSession().setAttribute("result_operation", "Update news successfully");

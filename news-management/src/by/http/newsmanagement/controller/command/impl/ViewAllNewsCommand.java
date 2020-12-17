@@ -41,6 +41,8 @@ public class ViewAllNewsCommand implements Command {
 				requestDispatcher.forward(request, response);
 			}
 		} catch (ServiceException e) {
+			request.getSession().setAttribute("result_operation", "No news, somethinhg was wrong");//
+			response.sendRedirect(ParameterUrlController.WELCOME_PAGE);//
 		}
 	}
 }

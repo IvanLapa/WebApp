@@ -37,6 +37,8 @@ public class DeleteSelectedNewsCommand implements Command{
 				response.sendRedirect(ParameterUrlController.WELCOME_PAGE);	
 			}
 		} catch (ServiceException e) {
+			request.getSession().setAttribute("result_operation", "Newsgroup not deleted, somethinhg was wrong");//
+			response.sendRedirect(ParameterUrlController.WELCOME_PAGE);//
 		}				
 	}
 }
