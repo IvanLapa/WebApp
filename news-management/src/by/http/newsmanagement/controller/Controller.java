@@ -38,6 +38,8 @@ public class Controller extends HttpServlet{
 		try {
 			command.execute(request, response);
 		} catch (ServletException | IOException | ServiceException e) {
+			
+			response.sendRedirect(ParameterUrlController.ERROR);
 		}
 	}
 }
